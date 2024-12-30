@@ -40,6 +40,9 @@ function calculateValue() {
     // numarray has all the numbers 
     // operator array has all the operators
 
+    console.log(numArray);
+    
+
     let res = numArray[0];
     for (let i = 1; i < numArray.length; i++)
     {
@@ -64,8 +67,18 @@ function calculateValue() {
     }
 
     res = res.toFixed(2)
+    if (res < 0) {
+        string = res.toString();
+        updateString();
+        string = "0" + res.toString();
+    }
+    else {
+        string = res.toString();
+        updateString()
+    }
+    
 
-    string = res.toString();
+
 
 }
 
@@ -86,14 +99,14 @@ deleteButton.addEventListener('click', () => {
 })
 
 allClearButton.addEventListener('click', () => {
-    string = ""
+    string = "0"
     updateString()
 })
 
 equalToButton.addEventListener('click', () => {
     calculateValue()
-    updateString()
-    string = "";
+    if (string === "NaN")
+        string = "";
 })
 
 
